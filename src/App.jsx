@@ -10,18 +10,16 @@ const PROVIDERS = [
   { id: 4, name: 'Goldman Sachs TxB', short: 'GS',   type: 'Banking',      category: 'bank',        status: 'degraded',    latency: '210ms', uptime: '98.2%',  requestsToday: 1892   },
   { id: 5, name: 'CME Group API',     short: 'CME',  type: 'Exchange',     category: 'exchange',    status: 'connected',   latency: '8ms',   uptime: '99.97%', requestsToday: 56780  },
   { id: 6, name: 'ICE Data Services', short: 'ICE',  type: 'Exchange',     category: 'exchange',    status: 'connected',   latency: '11ms',  uptime: '99.96%', requestsToday: 34120  },
-  { id: 7, name: 'Kyriba',            short: 'KYR',  type: 'Treasury WS',  category: 'treasury',    status: 'connected',   latency: '55ms',  uptime: '99.9%',  requestsToday: 8421   },
-  { id: 8, name: 'ION Treasury',      short: 'ION',  type: 'Treasury WS',  category: 'treasury',    status: 'connected',   latency: '62ms',  uptime: '99.88%', requestsToday: 6103   },
-  { id: 9, name: 'FIS Quantum',       short: 'FIS',  type: 'Treasury WS',  category: 'treasury',    status: 'maintenance', latency: '--',    uptime: '97.1%',  requestsToday: 0      },
+  { id: 7, name: 'TMS',            short: 'TMS',  type: 'Treasury WS',  category: 'treasury',    status: 'connected',   latency: '55ms',  uptime: '99.9%',  requestsToday: 8421   }
 ]
 
 const WORKFLOWS = [
-  { id: 'WF-001', name: 'FX Rate Synchronisation',      source: 'Bloomberg Terminal', dest: 'Kyriba',         schedule: 'Every 5 min',      status: 'active',   lastRun: '2 min ago',  nextRun: 'in 3 min',       jobsToday: 288,  errorRate: '0.0%',  transforms: ['FX Normalise', 'Rate Mapping']    },
-  { id: 'WF-002', name: 'Cash Position Reconciliation', source: 'JPMorgan ACCESS',    dest: 'ION Treasury',   schedule: '08:00/12:00/16:00', status: 'active',   lastRun: '2h ago',     nextRun: 'in 1h 45m',      jobsToday: 6,    errorRate: '0.0%',  transforms: ['Balance Agg.', 'Position Calc']   },
-  { id: 'WF-003', name: 'Real-Time Market Feed',        source: 'Refinitiv Elektron', dest: 'FIS Quantum',    schedule: 'Streaming',        status: 'paused',   lastRun: '4h ago',     nextRun: '--',             jobsToday: 0,    errorRate: '0.0%',  transforms: ['Tick Normalise', 'FIXML Map']     },
-  { id: 'WF-004', name: 'Trade Confirmation Ingestion', source: 'CME Group API',      dest: 'Kyriba',         schedule: 'Event-driven',     status: 'active',   lastRun: '8 min ago',  nextRun: 'On-trade',       jobsToday: 1204, errorRate: '0.08%', transforms: ['Parse Confirm', 'Trade Enrich']   },
-  { id: 'WF-005', name: 'Overnight FX Settlements',     source: 'Goldman Sachs TxB',  dest: 'ION Treasury',   schedule: '22:00 Mon–Fri',    status: 'degraded', lastRun: 'yesterday',  nextRun: 'in 14h 12m',     jobsToday: 1,    errorRate: '12.4%', transforms: ['Batch Netting', 'SWIFT MT202']    },
-  { id: 'WF-006', name: 'Interest Rate Curve Update',   source: 'ICE Data Services',  dest: 'Kyriba',         schedule: '07:00 Mon–Fri',    status: 'active',   lastRun: '6h ago',     nextRun: 'tomorrow 07:00', jobsToday: 1,    errorRate: '0.0%',  transforms: ['Curve Extract', 'Tenor Map']      },
+  { id: 'WF-001', name: 'FX Rate Synchronisation',      source: 'Bloomberg Terminal', dest: 'TMS',         schedule: 'Every 5 min',      status: 'active',   lastRun: '2 min ago',  nextRun: 'in 3 min',       jobsToday: 288,  errorRate: '0.0%',  transforms: ['FX Normalise', 'Rate Mapping']    },
+  { id: 'WF-002', name: 'Cash Position Reconciliation', source: 'JPMorgan ACCESS',    dest: 'TMS',   schedule: '08:00/12:00/16:00', status: 'active',   lastRun: '2h ago',     nextRun: 'in 1h 45m',      jobsToday: 6,    errorRate: '0.0%',  transforms: ['Balance Agg.', 'Position Calc']   },
+  { id: 'WF-003', name: 'Real-Time Market Feed',        source: 'Refinitiv Elektron', dest: 'TMS',    schedule: 'Streaming',        status: 'paused',   lastRun: '4h ago',     nextRun: '--',             jobsToday: 0,    errorRate: '0.0%',  transforms: ['Tick Normalise', 'FIXML Map']     },
+  { id: 'WF-004', name: 'Trade Confirmation Ingestion', source: 'CME Group API',      dest: 'TMS',         schedule: 'Event-driven',     status: 'active',   lastRun: '8 min ago',  nextRun: 'On-trade',       jobsToday: 1204, errorRate: '0.08%', transforms: ['Parse Confirm', 'Trade Enrich']   },
+  { id: 'WF-005', name: 'Overnight FX Settlements',     source: 'Goldman Sachs TxB',  dest: 'TMS',   schedule: '22:00 Mon–Fri',    status: 'degraded', lastRun: 'yesterday',  nextRun: 'in 14h 12m',     jobsToday: 1,    errorRate: '12.4%', transforms: ['Batch Netting', 'SWIFT MT202']    },
+  { id: 'WF-006', name: 'Interest Rate Curve Update',   source: 'ICE Data Services',  dest: 'TMS',         schedule: '07:00 Mon–Fri',    status: 'active',   lastRun: '6h ago',     nextRun: 'tomorrow 07:00', jobsToday: 1,    errorRate: '0.0%',  transforms: ['Curve Extract', 'Tenor Map']      },
 ]
 
 const QUEUE = [
@@ -43,17 +41,17 @@ const SCHEDULED = [
 ]
 
 const ACTIVITY = [
-  { id: 1,  time: '14:32:08', type: 'success', msg: 'WF-001 completed — 142 FX rates delivered to Kyriba' },
+  { id: 1,  time: '14:32:08', type: 'success', msg: 'WF-001 completed — 142 FX rates delivered to TMS' },
   { id: 2,  time: '14:31:55', type: 'info',    msg: 'WF-004 inbound event — EUR/USD 5M notional, CME trade confirmation' },
   { id: 3,  time: '14:30:12', type: 'error',   msg: 'WF-005 retry 3/3 failed — Goldman Sachs TxB timeout after 45s' },
-  { id: 4,  time: '14:27:08', type: 'success', msg: 'WF-001 completed — 142 FX rates delivered to Kyriba' },
-  { id: 5,  time: '14:22:08', type: 'success', msg: 'WF-001 completed — 142 FX rates delivered to Kyriba' },
+  { id: 4,  time: '14:27:08', type: 'success', msg: 'WF-001 completed — 142 FX rates delivered to TMS' },
+  { id: 5,  time: '14:22:08', type: 'success', msg: 'WF-001 completed — 142 FX rates delivered to TMS' },
   { id: 6,  time: '14:17:22', type: 'info',    msg: 'WF-004 inbound event — GBP/USD 2.5M notional, CME trade confirmation' },
-  { id: 7,  time: '14:10:00', type: 'success', msg: 'WF-002 completed — 312 positions reconciled to ION Treasury' },
+  { id: 7,  time: '14:10:00', type: 'success', msg: 'WF-002 completed — 312 positions reconciled to TMS' },
   { id: 8,  time: '13:45:02', type: 'warning', msg: 'Alert — Goldman Sachs TxB latency elevated (avg 210ms, threshold 150ms)' },
-  { id: 9,  time: '12:10:01', type: 'success', msg: 'WF-002 completed — 309 positions reconciled to ION Treasury' },
-  { id: 10, time: '08:00:04', type: 'success', msg: 'WF-002 completed — 301 positions reconciled to ION Treasury' },
-  { id: 11, time: '07:00:02', type: 'success', msg: 'WF-006 completed — 89 rate curve tenors delivered to Kyriba' },
+  { id: 9,  time: '12:10:01', type: 'success', msg: 'WF-002 completed — 309 positions reconciled to TMS' },
+  { id: 10, time: '08:00:04', type: 'success', msg: 'WF-002 completed — 301 positions reconciled to TMS' },
+  { id: 11, time: '07:00:02', type: 'success', msg: 'WF-006 completed — 89 rate curve tenors delivered to TMS' },
 ]
 
 const HOURLY = [
@@ -703,7 +701,7 @@ function Login({ onLogin }) {
           ))}
         </div>
         <div className="login-providers">
-          {['Bloomberg', 'Refinitiv', 'JPMorgan', 'Goldman Sachs', 'CME Group', 'ICE', 'Kyriba', 'ION Treasury', 'FIS'].map(p => (
+          {['Bloomberg', 'Refinitiv', 'JPMorgan', 'Goldman Sachs', 'CME Group', 'ICE', 'TMS'].map(p => (
             <span key={p} className="login-provider-pill">{p}</span>
           ))}
         </div>
