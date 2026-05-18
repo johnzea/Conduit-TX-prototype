@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="7" fill="#050d1a"/>
+  <!-- Connecting lines -->
+  <line x1="10.5" y1="14.2" x2="20.5" y2="9.4" stroke="#60a5fa" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="10.5" y1="17.8" x2="20.5" y2="22.6" stroke="#60a5fa" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- Left hub (large blue) -->
+  <circle cx="7.5" cy="16" r="5" fill="#3b82f6"/>
+  <!-- Top-right node (teal) -->
+  <circle cx="23.5" cy="8" r="3.5" fill="#0ea5e9"/>
+  <!-- Bottom-right node (teal) -->
+  <circle cx="23.5" cy="24" r="3.5" fill="#0ea5e9"/>
+</svg>
