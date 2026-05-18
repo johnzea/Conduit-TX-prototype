@@ -734,33 +734,71 @@
   letter-spacing: 0.04em;
 }
 
-/* ── Responsive ──────────────────────────────────────────────────────────── */
+/* ── Responsive — tablet ─────────────────────────────────────────────────── */
 
-@media (max-width: 768px) {
-  .slide { padding: 2rem 1.25rem; }
+@media (max-width: 900px) {
+  .ux-grid--primary   { grid-template-columns: repeat(3, 1fr); }
+  .ux-grid--secondary { grid-template-columns: repeat(3, 1fr); }
+  .nav-dots { right: 0.75rem; }
+}
 
+/* ── Responsive — mobile: switch to normal scroll layout ─────────────────── */
+
+@media (max-width: 767px) {
+  /* Override fixed-height viewport locking */
+  html, body { overflow: auto; height: auto; }
+  #root       { height: auto; }
+
+  .deck          { height: auto; overflow: visible; }
+  .deck-viewport { height: auto; overflow: visible; }
+
+  /* Disable JS-driven translateY — mobile scrolls naturally */
+  .deck-track {
+    transform: none !important;
+    transition: none !important;
+    flex-direction: column;
+  }
+
+  /* Sections flow as tall blocks */
+  .slide {
+    height: auto;
+    min-height: 100svh;
+    padding: 3.5rem 1.25rem 2.5rem;
+  }
+
+  /* Hide desktop navigation chrome */
+  .nav-dots,
+  .deck-arrow,
+  .slide-counter { display: none; }
+
+  /* Hero adjustments */
+  .hero-stats         { display: grid; grid-template-columns: repeat(3, auto); gap: 0.5rem 1.25rem; }
+  .hero-stat-divider  { display: none; }
+
+  /* Two-column → single column grids */
   .problem-grid       { grid-template-columns: 1fr; }
   .ux-grid--primary   { grid-template-columns: 1fr; }
   .ux-grid--secondary { grid-template-columns: 1fr; }
-  .security-cols      { flex-direction: column; }
-  .security-divider   { display: none; }
-  .flow-engine-cols   { flex-direction: column; }
 
-  .flow-diagram {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  /* Side-by-side columns → stacked */
+  .security-cols    { flex-direction: column; }
+  .security-divider { display: none; }
+  .flow-engine-cols { flex-direction: column; }
 
-  .flow-arrow { transform: rotate(90deg); align-self: center; }
-  .flow-box   { min-width: unset; }
+  /* Solution flow diagram: stack vertically */
+  .flow-diagram     { flex-direction: column; align-items: stretch; }
+  .flow-arrow       { transform: rotate(90deg); align-self: center; padding: 0; }
+  .flow-box         { min-width: unset; }
+  .solution-badges  { flex-direction: column; }
 
-  .hero-stats { gap: 1rem; }
-  .hero-stat-divider { height: 2rem; }
-
-  .arch-tier-body { flex-direction: column; gap: 0.3rem; }
+  /* Architecture: title + description stack */
+  .arch-tier-body  { flex-direction: column; gap: 0.25rem; }
   .arch-tier-title { white-space: normal; }
 
-  .cta-stats { gap: 1.5rem; }
+  /* CTA stats: 2×2 grid */
+  .cta-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; }
 
-  .nav-dots { right: 0.75rem; }
+  /* Fix domain links wrapping */
+  .cta-domains { flex-direction: column; gap: 0.3rem; align-items: center; }
+  .cta-domain-sep { display: none; }
 }
