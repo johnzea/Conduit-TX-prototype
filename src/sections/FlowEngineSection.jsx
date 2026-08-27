@@ -1,23 +1,26 @@
 const NODE_TYPES = [
-  { tag: 'fetch',     color: '#0ea5e9', desc: 'Calls a source connector — appends records to shared pipeline context' },
-  { tag: 'transform', color: '#8b5cf6', desc: 'Executes JavaScript in an isolated sandbox runtime or guided field-mapping schema' },
-  { tag: 'condition', color: '#f59e0b', desc: 'Routes execution via AND/OR field-level rules — supports branching DAGs' },
-  { tag: 'post',      color: '#10b981', desc: 'Delivers records to a destination connector; supports chunked, async-polled output' },
-  { tag: 'notify',    color: '#3b82f6', desc: 'Sends in-app or email alerts with template variable interpolation' },
+  { tag: 'fetch',        color: '#0ea5e9', desc: 'Calls a source connector — appends records to shared pipeline context' },
+  { tag: 'map_fields',   color: '#8b5cf6', desc: 'Guided field-mapping editor for non-developers, with AI-assisted auto-mapping' },
+  { tag: 'custom_script', color: '#8b5cf6', desc: 'Full JavaScript editor running in an isolated sandbox, with AI-streamed suggestions' },
+  { tag: 'condition',    color: '#f59e0b', desc: 'Routes execution via AND/OR field-level rules — supports branching DAGs' },
+  { tag: 'post',         color: '#10b981', desc: 'Delivers records to a destination connector; supports chunked, async-polled output' },
+  { tag: 'notify',       color: '#3b82f6', desc: 'Sends in-app or email alerts with template variable interpolation' },
 ];
 
 const SOURCES = [
   'Crypto Custodian Wallet (balance & positions)',
   'Bank Reporting — Account Balances',
   'Bank Reporting — Transaction History',
+  'Bank Reporting — Nordea',
   'Treasury Management System (TMS)',
   'Market Data — Rate Benchmarks',
   'Market Data — FX Spot & Historical Rates',
-  'Trading Exchange — Account & Settlement Data',
+  'Payment File — ISO 20022 PAIN.001',
 ];
 
 const DESTINATIONS = [
   'Treasury Management System (native async delivery, status polling)',
+  'Wire Payments (bank wire submission)',
 ];
 
 export default function FlowEngineSection() {

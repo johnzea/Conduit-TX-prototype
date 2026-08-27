@@ -1,7 +1,7 @@
 const STATS = [
-  { num: '7',    label: 'Source Connectors' },
-  { num: '1',    label: 'Destination (TMS)' },
-  { num: '14',   label: 'API Modules' },
+  { num: '8',    label: 'Source Connectors' },
+  { num: '2',    label: 'Destinations' },
+  { num: '17',   label: 'API Modules' },
   { num: '100%', label: 'Audit Coverage' },
 ];
 
