@@ -13,13 +13,13 @@ const TIERS = [
   },
   {
     label: 'Data',
-    title: 'Postgres · Valkey · Vault',
-    desc: 'Postgres for metadata, audit log, and scheduling · Valkey cache for reference data and task queues · Vault secrets store with per-tenant encryption keys for sensitive fields at rest',
+    title: 'Metadata · Audit · Scheduling · Ref-Data Cache',
+    desc: 'Relational DB for metadata and audit log · In-memory cache for reference data and task queues · Encrypted secrets store with per-tenant encryption keys for sensitive fields at rest',
     color: 'var(--amber)',
   },
   {
     label: 'Workers',
-    title: 'Celery Worker Pool · Beat Scheduler · DAG Flow Runner',
+    title: 'Async Worker Pool · Beat Scheduler · DAG Flow Runner',
     desc: 'Per-tenant queues · exponential retry · dead-letter queue · isolated credential paths per tenant',
     color: 'var(--green)',
   },

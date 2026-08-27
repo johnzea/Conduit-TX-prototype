@@ -11,7 +11,7 @@ const SOURCES = [
   'Crypto Custodian Wallet (balance & positions)',
   'Bank Reporting — Account Balances',
   'Bank Reporting — Transaction History',
-  'Bank Reporting — Nordea',
+  'Bank Reporting — International Accounts',
   'Treasury Management System (TMS)',
   'Market Data — Rate Benchmarks',
   'Market Data — FX Spot & Historical Rates',

@@ -1,7 +1,7 @@
 const LAYERS = [
   { label: 'API Layer', desc: 'Every request validates the caller belongs to the requested tenant — enforced on every endpoint' },
   { label: 'Database', desc: 'tenant_id foreign key on every table; all queries are scoped — no cross-tenant leakage possible' },
-  { label: 'Secrets Store', desc: 'Vault credential paths isolated per tenant via AppRole auth (no root tokens in production); per-tenant keys encrypt sensitive data at rest' },
+  { label: 'Secrets Store', desc: 'Credential paths isolated per tenant with scoped, non-root service authentication; per-tenant keys encrypt sensitive data at rest' },
   { label: 'Worker Queues', desc: 'Per-tenant routing queues — one tenant\'s heavy workload cannot starve another' },
 ];
 
