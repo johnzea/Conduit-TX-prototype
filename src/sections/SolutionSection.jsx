@@ -16,7 +16,7 @@ const FLOW = [
   },
   {
     label: 'Destination\nSystems',
-    sub: 'TMS · ERPs\nCustom Endpoints',
+    sub: 'TMS · Wire\nPayment Networks',
     color: 'var(--green)',
   },
 ];

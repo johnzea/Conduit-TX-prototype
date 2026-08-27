@@ -557,7 +557,7 @@
   gap: 0.85rem;
 }
 
-.ux-grid--primary   { grid-template-columns: repeat(3, 1fr); }
+.ux-grid--primary   { grid-template-columns: repeat(4, 1fr); }
 .ux-grid--secondary { grid-template-columns: repeat(3, 1fr); }
 
 .ux-card {
@@ -737,8 +737,8 @@
 /* ── Responsive — tablet ─────────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
-  .ux-grid--primary   { grid-template-columns: repeat(3, 1fr); }
-  .ux-grid--secondary { grid-template-columns: repeat(3, 1fr); }
+  .ux-grid--primary   { grid-template-columns: repeat(2, 1fr); }
+  .ux-grid--secondary { grid-template-columns: repeat(2, 1fr); }
   .nav-dots { right: 0.75rem; }
 }
 

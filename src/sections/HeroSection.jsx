@@ -11,12 +11,12 @@ export default function HeroSection({ onNext }) {
         </p>
         <div className="hero-stats">
           <div className="hero-stat">
-            <span className="hero-stat-num">7</span>
+            <span className="hero-stat-num">8</span>
             <span className="hero-stat-label">Pre-Built Connectors</span>
           </div>
           <div className="hero-stat-divider" />
           <div className="hero-stat">
-            <span className="hero-stat-num">14</span>
+            <span className="hero-stat-num">17</span>
             <span className="hero-stat-label">REST API Modules</span>
           </div>
           <div className="hero-stat-divider" />

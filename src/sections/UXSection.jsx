@@ -2,12 +2,17 @@ const PRIMARY = [
   {
     icon: '🎨',
     title: 'Visual Flow Designer',
-    desc: 'Drag-and-drop canvas for building pipelines. Add nodes, connect edges, configure each step inline — no code or YAML required for standard pipelines.',
+    desc: 'Drag-and-drop, auto-layout canvas for building pipelines. Add nodes, connect edges, configure each step inline — no code or YAML required for standard pipelines.',
+  },
+  {
+    icon: '🧭',
+    title: 'Map Fields Editor',
+    desc: 'Guided field-mapping mode for non-developers, with AI-assisted auto-mapping between source and destination schemas.',
   },
   {
     icon: '✏️',
-    title: 'Transform Editor + AI Assist',
-    desc: 'Full-featured code editor for custom data transforms in an isolated sandbox. Guided field-mapping mode for non-developers. AI Assist streams code suggestions in real time.',
+    title: 'Custom Script Editor',
+    desc: 'Full-featured code editor for custom data transforms in an isolated sandbox. AI Assist streams code suggestions in real time.',
   },
   {
     icon: '📊',
@@ -30,7 +35,17 @@ const SECONDARY = [
   {
     icon: '🔌',
     title: 'Connector Setup Wizard',
-    desc: 'Schema-driven connector configuration forms. Credential sets stored to an encrypted secrets store — the UI never stores or echoes secret values.',
+    desc: 'Schema-driven connector configuration forms. Credential sets are write-only — the UI never stores or echoes secret values, and flags credentials for rotation after 90 days.',
+  },
+  {
+    icon: '📅',
+    title: 'Holiday Calendar Overrides',
+    desc: 'Scheduled jobs automatically skip configured bank holidays, per tenant, without manual schedule edits.',
+  },
+  {
+    icon: '📦',
+    title: 'Flow Bundle Export/Import',
+    desc: 'Export a job as a portable bundle and import it into another tenant or environment through a guided wizard with dry-run validation before anything commits.',
   },
 ];
 
