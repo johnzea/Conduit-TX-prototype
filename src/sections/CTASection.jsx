@@ -39,7 +39,7 @@ export default function CTASection() {
         <div className="cta-domains">
           <a href="https://www.insightfulsolutionsconsulting.com" target="_blank" rel="noreferrer">insightfulsolutionsconsulting.com</a>
           <span className="cta-domain-sep">·</span>
-          <a href="https://app.conduit-tx.com" target="_blank" rel="noreferrer">app.conduit-tx.com</a>
+          <a href="https://staging.conduit-tx.com" target="_blank" rel="noreferrer">staging.conduit-tx.com</a>
         </div>
         <div className="cta-footer">Insightful Solutions Consulting LLC · Chicago, IL</div>
       </div>
